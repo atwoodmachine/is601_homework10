@@ -18,6 +18,7 @@ from builtins import range
 from datetime import datetime
 from unittest.mock import patch
 from uuid import uuid4
+from datetime import timedelta
 
 # Third-party imports
 import pytest
@@ -262,3 +263,27 @@ def user_response_data():
 @pytest.fixture
 def login_request_data():
     return {"email": "john.doe@example.com", "password": "SecurePassword123!"}
+
+@pytest.fixture
+def user_token():
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "user@example.com", "role": "AUTHENTICATED"},
+        expires_delta=access_token_expires
+        )
+
+@pytest.fixture
+def admin_token():
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "admin@example.com", "role": "ADMIN"},
+        expires_delta=access_token_expires
+        )
+
+@pytest.fixture
+def manager_token():
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "manager@example.com", "role": "MANAGER"},
+        expires_delta=access_token_expires
+        )
