@@ -18,6 +18,7 @@ from builtins import range
 from datetime import datetime
 from unittest.mock import patch
 from uuid import uuid4
+from datetime import timedelta
 
 # Third-party imports
 import pytest
@@ -263,14 +264,34 @@ def user_response_data():
 def login_request_data():
     return {"email": "john.doe@example.com", "password": "SecurePassword123!"}
 
+#how access token is used in routes:
+'''access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+
+        access_token = create_access_token(
+            data={"sub": user.email, "role": str(user.role.name)},
+            expires_delta=access_token_expires
+        )'''
+
 @pytest.fixture
 def user_token():
-    return create_access_token(data={"email": "test@example.com", "role": "ANONYMOUS"})
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "user@example.com", "role": "AUTHENTICATED"},
+        expires_delta=access_token_expires
+        )
 
 @pytest.fixture
 def admin_token():
-    return create_access_token(data={"email": "adminuser@example.com", "role": "ADMIN"})
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "admin@example.com", "role": "ADMIN"},
+        expires_delta=access_token_expires
+        )
 
 @pytest.fixture
 def manager_token():
-    return create_access_token(data={"email": "manager@example.com", "role": "MANAGER"})
+    access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
+    return create_access_token(
+        data={"sub": "manager@example.com", "role": "MANAGER"},
+        expires_delta=access_token_expires
+        )
