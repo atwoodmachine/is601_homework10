@@ -264,14 +264,6 @@ def user_response_data():
 def login_request_data():
     return {"email": "john.doe@example.com", "password": "SecurePassword123!"}
 
-#how access token is used in routes:
-'''access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
-
-        access_token = create_access_token(
-            data={"sub": user.email, "role": str(user.role.name)},
-            expires_delta=access_token_expires
-        )'''
-
 @pytest.fixture
 def user_token():
     access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
