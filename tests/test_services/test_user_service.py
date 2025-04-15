@@ -91,6 +91,15 @@ async def test_update_valid_and_invalid_fields(db_session, user):
     updated_user = await UserService.update(db_session, user.id, {"bio": "Richard who loves python", "github_profile_url": "oopsie!"})
     assert updated_user is None
 
+#Test empty strings don't wipe data by mistake
+async def test_update_blank_bio(db_session, user):
+    updated_user = await UserService.update(db_session, user.id, {"first_name": "Josh", "bio": ""})
+    assert updated_user is None
+
+async def test_update_blank_names(db_session, user):
+    updated_user = await UserService.update(db_session, user.id, {"first_name": "", "last_name": "", "bio": "Some guy"})
+    assert updated_user is None
+
 # Test deleting a user who exists
 async def test_delete_user_exists(db_session, user):
     deletion_success = await UserService.delete(db_session, user.id)

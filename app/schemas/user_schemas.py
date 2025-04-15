@@ -67,6 +67,12 @@ class UserUpdate(UserBase):
         if not any(values.values()):
             raise ValueError("At least one field must be provided for update")
         return values
+    
+    @field_validator("bio", "first_name", "last_name")
+    def check_no_blank_strings(cls, values):
+        if values == "":
+            raise ValueError("An empty string was entered for this field")
+        return values
 
 class UserResponse(UserBase):
     id: uuid.UUID = Field(..., example=uuid.uuid4())
