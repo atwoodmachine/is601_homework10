@@ -75,9 +75,6 @@ def test_user_create_password_invalid(password, user_base_data):
     with pytest.raises(ValidationError):
         UserCreate(**user_data)
 
-'''user_base_data["profile_picture_url"] = url
-    user = UserBase(**user_base_data)
-    assert user.profile_picture_url == url'''
 #Test strong passwords function as expected
 @pytest.mark.parametrize("password", ["Strong123!", "Apples@9", "Darke$t$chocolate2"])
 def test_user_create_strong_password(password, user_base_data):
