@@ -5,10 +5,13 @@
 In the video, an issue was demonstrated where the API documentation displayed inconsistent information in the nickname fields of the user registration where mismatched. This was originally due to the fact that in the user_schemas.py file, the nickname examples all called generate_nickname(), which randomly assigned a nickname every time the docs page was viewed. This was fixed by changing the example text to a consistent value, which helps developers by making the API clearer and accurate to its actual functionality. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/1).
 
 ### Issue 2
+When first running the project, several tests fail because there is a mismatch in testing fixtures and the given schema. Particularly, the attributes "full_name" and "username" are used instead of the accurate "first_name", "last_name", and "nickname" fields. These were renamed and the tests pass with expected behavior. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/3)
 
 ### Issue 3
+When first running the program, several missing fixtures cause errors when attempting to run tests. These fixtures were added and the tests passed as expected. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/5)
 
 ### Issue 4
+The CI/CD workflow in github checks to ensure used libraries are secure and warns if libraries are not up to date and have known vulnerabilities. To fix this, libraries are upgraded to their most recent versions. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/8)
 
 ### Issue 5
 
