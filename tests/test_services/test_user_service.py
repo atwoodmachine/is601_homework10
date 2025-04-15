@@ -72,6 +72,20 @@ async def test_update_user_invalid_data(db_session, user):
     updated_user = await UserService.update(db_session, user.id, {"email": "invalidemail"})
     assert updated_user is None
 
+#Test updating a user's bio AND profile picture together
+async def test_update_bio_and_pic(db_session, user):
+    updated_user = await UserService.update(db_session, user.id, {"bio": "Steve, a programmer", "profile_picture_url": "https://picsgalore.com/profiles/steve.jpg"})
+    assert updated_user is not None
+    assert updated_user.bio == "Steve, a programmer"
+    assert updated_user.profile_picture_url == "https://picsgalore.com/profiles/steve.jpg"
+
+#Test updating a user's linkedin and last name together
+async def test_update_linkedin_and_lastname(db_session, user):
+    updated_user = await UserService.update(db_session, user.id, {"linkedin_profile_url": "https://linkedin.com/in/johndavids", "last_name": "Davids"})
+    assert updated_user is not None
+    assert updated_user.last_name == "Davids"
+    assert updated_user.linkedin_profile_url == "https://linkedin.com/in/johndavids"
+
 # Test deleting a user who exists
 async def test_delete_user_exists(db_session, user):
     deletion_success = await UserService.delete(db_session, user.id)
