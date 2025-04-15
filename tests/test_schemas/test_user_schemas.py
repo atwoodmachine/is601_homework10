@@ -81,3 +81,10 @@ def test_user_create_strong_password(password, user_base_data):
     user_data = {**user_base_data, "password": password}
     user = UserCreate(**user_data)
     assert user.password == password
+
+#Test long username
+@pytest.mark.parametrize("nickname", ["ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"])
+def test_user_base_nickname_too_long(nickname, user_base_data):
+    user_base_data["nickname"] = nickname
+    with pytest.raises(ValidationError):
+        UserBase(**user_base_data)

@@ -22,6 +22,9 @@ There exist real world scenarios in which a user might want to update a number o
 ### Issue 7
 There exists a scenario in which a user may attempt to update their profile where some data is valid and some is invalid, but the current test suite only accommodates entirely valid or entirely invalid data. Tests were added with valid and invalid data being given for an update at the same time in order to ensure the program behaves as expected throughout development. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/16)
 
+### Issue 8
+Initially there was some basic validation for user nicknames, but no max length. Lacking standardization may cause unexpected problems with the database or UI down the line, so it would be best to fix this. A max length validator was added to the schema and a test was added to ensure overlong nicknames are not accepted. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/18)
+
 ## Dockerhub Image
 Here is the dockerhub image for this project: [link](https://hub.docker.com/repository/docker/senizozso9/is601_homework10/general) 
 
