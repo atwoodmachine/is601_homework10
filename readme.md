@@ -17,6 +17,7 @@ The CI/CD workflow in github checks to ensure used libraries are secure and warn
 It is important to use strong passwords in order to avoid security problems. However, there was no validation for strong passwords in the user schema. A validator was added to check when a user is being created that they enter a strong password containg a digit, a special character, and an uppercase letter at a minimum. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/12)
 
 ### Issue 6
+There exist real world scenarios in which a user might want to update a number of fields in their account at the same time. At the start there were no tests to ensure these changes were handled as expected, so additional tests were added in order to test updating combinations of fields so if anything broke because of changes made they would be detected easily. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/14)
 
 ## Dockerhub Image
 Here is the dockerhub image for this project: [link](https://hub.docker.com/repository/docker/senizozso9/is601_homework10/general) 
