@@ -17,6 +17,7 @@ There exists a scenario in which a user may attempt to update their profile wher
 Initially there was some basic validation for user nicknames, but no max length. Lacking standardization may cause unexpected problems with the database or UI down the line, so it would be best to fix this. A max length validator was added to the schema and a test was added to ensure overlong nicknames are not accepted. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/18)
 
 ### Issue 6
+There was no existing validation for the fields of bio, first name, or last name to prevent them from being entered as empty strings, which may unintentionally overwrite data. Validation to ensure these values are not blank when being updated was added to the user schema, as well as tests to ensure attempted updates with blank fields are not permitted. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/20)
 
 ### Issue 7
 When first running the project, several tests fail because there is a mismatch in testing fixtures and the given schema. Particularly, the attributes "full_name" and "username" are used instead of the accurate "first_name", "last_name", and "nickname" fields. These were renamed and the tests pass with expected behavior. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/3)
