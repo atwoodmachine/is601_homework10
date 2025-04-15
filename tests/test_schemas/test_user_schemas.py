@@ -67,3 +67,17 @@ def test_user_base_invalid_email(user_base_data_invalid):
     
     assert "value is not a valid email address" in str(exc_info.value)
     assert "john.doe.example.com" in str(exc_info.value)
+
+#Test weak passwords raise error
+@pytest.mark.parametrize("password", ["weak!", "Apple", "darkchocolate2"])
+def test_user_create_password_invalid(password, user_base_data):
+    user_data = {**user_base_data, "password": password}
+    with pytest.raises(ValidationError):
+        UserCreate(**user_data)
+
+#Test strong passwords function as expected
+@pytest.mark.parametrize("password", ["Strong123!", "Apples@9", "Darke$t$chocolate2"])
+def test_user_create_strong_password(password, user_base_data):
+    user_data = {**user_base_data, "password": password}
+    user = UserCreate(**user_data)
+    assert user.password == password
