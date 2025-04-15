@@ -14,6 +14,7 @@ When first running the program, several missing fixtures cause errors when attem
 The CI/CD workflow in github checks to ensure used libraries are secure and warns if libraries are not up to date and have known vulnerabilities. To fix this, libraries are upgraded to their most recent versions. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/8)
 
 ### Issue 5
+It is important to use strong passwords in order to avoid security problems. However, there was no validation for strong passwords in the user schema. A validator was added to check when a user is being created that they enter a strong password containg a digit, a special character, and an uppercase letter at a minimum. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/12)
 
 ### Issue 6
 
