@@ -86,6 +86,11 @@ async def test_update_linkedin_and_lastname(db_session, user):
     assert updated_user.last_name == "Davids"
     assert updated_user.linkedin_profile_url == "https://linkedin.com/in/johndavids"
 
+#Test updating a user with a valid bio but INVALID github url
+async def test_update_valid_and_invalid_fields(db_session, user):
+    updated_user = await UserService.update(db_session, user.id, {"bio": "Richard who loves python", "github_profile_url": "oopsie!"})
+    assert updated_user is None
+
 # Test deleting a user who exists
 async def test_delete_user_exists(db_session, user):
     deletion_success = await UserService.delete(db_session, user.id)
