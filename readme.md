@@ -29,7 +29,7 @@ When first running the program, several missing fixtures cause errors when attem
 The CI/CD workflow in github checks to ensure used libraries are secure and warns if libraries are not up to date and have known vulnerabilities. To fix this, libraries are upgraded to their most recent versions. Here is the link to the [closed issue](https://github.com/atwoodmachine/is601_homework10/issues/8)
 
 ## Dockerhub Image
-Here is the dockerhub image for this project: [link](https://hub.docker.com/repository/docker/senizozso9/is601_homework10/general) 
+Here is the dockerhub image for this project: [link](https://hub.docker.com/r/senizozso9/is601_homework10/tags) 
 
 ## Reflection
 This assignment provided valuable insights into source control practices such as github issues and CI/CD pipelines. Issues were an effective way to communicate errors with the project and solve them in an organized manner. The ability to create branches directly based off of an issue was especially convenient and provided for clearer organization of what was being worked on and an easy way to see how those issues were solved. 
